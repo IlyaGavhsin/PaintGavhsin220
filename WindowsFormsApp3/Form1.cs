@@ -23,7 +23,7 @@ namespace WindowsFormsApp3
 
         private void texRadius_TextChanged(object sender, EventArgs e)
         {
-            radius = Int32.Parse(texRadius.Text);
+            radius = Int32.Parse(texRadius.Text); ;
         }
 
         private void Form1_Load(object sender, EventArgs e)
