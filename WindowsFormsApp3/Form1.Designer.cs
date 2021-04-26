@@ -62,8 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(imgCircle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
-            this.panelTrin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            this.panelTrin.SuspendLayout();
             this.panelRec.SuspendLayout();
             this.panelCircle.SuspendLayout();
             this.panelLine.SuspendLayout();
@@ -110,6 +110,21 @@
             pictureBox2.TabIndex = 13;
             pictureBox2.TabStop = false;
             pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox3.ImageLocation = "C:\\Users\\Gafhi\\source\\repos\\WindowsFormsApp3\\WindowsFormsApp3\\img\\Rectangle 1435." +
+    "png";
+            pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            pictureBox3.Location = new System.Drawing.Point(20, 15);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(98, 50);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 11;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // texRadius
             // 
@@ -185,12 +200,12 @@
             this.btnDrowCircle.BackColor = System.Drawing.Color.Black;
             this.btnDrowCircle.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDrowCircle.ForeColor = System.Drawing.Color.White;
-            this.btnDrowCircle.Location = new System.Drawing.Point(53, 674);
+            this.btnDrowCircle.Location = new System.Drawing.Point(500, 704);
             this.btnDrowCircle.Margin = new System.Windows.Forms.Padding(4);
             this.btnDrowCircle.Name = "btnDrowCircle";
-            this.btnDrowCircle.Size = new System.Drawing.Size(354, 52);
+            this.btnDrowCircle.Size = new System.Drawing.Size(1181, 82);
             this.btnDrowCircle.TabIndex = 5;
-            this.btnDrowCircle.Text = "Вывести";
+            this.btnDrowCircle.Text = "Почистить Поле";
             this.btnDrowCircle.UseVisualStyleBackColor = false;
             this.btnDrowCircle.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -313,10 +328,10 @@
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Location = new System.Drawing.Point(500, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1181, 782);
+            this.panel1.Size = new System.Drawing.Size(1181, 707);
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClicks);
             // 
             // panelTrin
             // 
@@ -326,6 +341,7 @@
             this.panelTrin.Name = "panelTrin";
             this.panelTrin.Size = new System.Drawing.Size(391, 80);
             this.panelTrin.TabIndex = 0;
+            this.panelTrin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelTrin_MouseClick);
             // 
             // label5
             // 
@@ -342,21 +358,6 @@
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            pictureBox3.ImageLocation = "C:\\Users\\Gafhi\\source\\repos\\WindowsFormsApp3\\WindowsFormsApp3\\img\\Rectangle 1435." +
-    "png";
-            pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            pictureBox3.Location = new System.Drawing.Point(20, 15);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(98, 50);
-            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 11;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
             // panelRec
             // 
             this.panelRec.Controls.Add(pictureBox3);
@@ -365,6 +366,7 @@
             this.panelRec.Name = "panelRec";
             this.panelRec.Size = new System.Drawing.Size(391, 80);
             this.panelRec.TabIndex = 0;
+            this.panelRec.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelRec_MouseClick);
             // 
             // panelCircle
             // 
@@ -386,6 +388,7 @@
             this.panelLine.Name = "panelLine";
             this.panelLine.Size = new System.Drawing.Size(198, 80);
             this.panelLine.TabIndex = 0;
+            this.panelLine.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelLine_MouseClick);
             // 
             // Form1
             // 
@@ -418,9 +421,9 @@
             ((System.ComponentModel.ISupportInitialize)(imgCircle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
             this.panelTrin.ResumeLayout(false);
             this.panelTrin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
             this.panelRec.ResumeLayout(false);
             this.panelRec.PerformLayout();
             this.panelCircle.ResumeLayout(false);

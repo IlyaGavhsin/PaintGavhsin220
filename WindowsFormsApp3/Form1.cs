@@ -87,10 +87,7 @@ namespace WindowsFormsApp3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Graphics graphics = CreateGraphics();
-            graphics.Clear(BackColor);
-            graphics.FillEllipse(Brushes.Red, x, y, radius * 2, radius * 2);
-            graphics.Dispose();
+            paper.Clear(Color.WhiteSmoke);
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -100,42 +97,74 @@ namespace WindowsFormsApp3
         private void label1_Click_1(object sender, EventArgs e)
         {
             curFig = TypeFigure.Circle;
+            panelCircle.BackColor = Color.WhiteSmoke;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Line;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.WhiteSmoke;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Rectangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.WhiteSmoke;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Line;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.WhiteSmoke;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void imgCircle_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Circle;
+            panelCircle.BackColor = Color.WhiteSmoke;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Rectangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.WhiteSmoke;
+            panelTrin.BackColor = Color.Transparent;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Triangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.WhiteSmoke;
         }
 
         #region
         private void label4_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Triangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.WhiteSmoke;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -163,6 +192,37 @@ namespace WindowsFormsApp3
         private void panelCircle_MouseClick(object sender, MouseEventArgs e)
         {
             curFig = TypeFigure.Circle;
+            panelCircle.BackColor = Color.WhiteSmoke;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
+        }
+
+        private void panelLine_MouseClick(object sender, MouseEventArgs e)
+        {
+            curFig = TypeFigure.Line;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.WhiteSmoke;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
+        }
+
+        private void panelRec_MouseClick(object sender, MouseEventArgs e)
+        {
+            curFig = TypeFigure.Rectangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.WhiteSmoke;
+            panelTrin.BackColor = Color.Transparent;
+        }
+
+        private void panelTrin_MouseClick(object sender, MouseEventArgs e)
+        {
+            curFig = TypeFigure.Triangle;
+            panelCircle.BackColor = Color.Transparent;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.WhiteSmoke;
         }
     }
     
