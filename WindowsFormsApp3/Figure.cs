@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,7 @@ namespace WindowsFormsApp3
             y = newY;
         }
 
-        public virtual void Draw()
-        { }
+        public virtual void Draw(Graphics pap, Pen pen) { }
 
         public override string ToString()
         {
@@ -37,9 +37,9 @@ namespace WindowsFormsApp3
             y2 = newY2;
         }
 
-        public override void Draw()
+        public override void Draw(Graphics pap, Pen pen)
         {
-            // Draw line
+            pap.DrawLine(pen, x, y, x2, y2);
         }
 
         public override string ToString()
@@ -57,14 +57,57 @@ namespace WindowsFormsApp3
             r = newR;
         }
 
-        public override void Draw()
+        public override void Draw(Graphics pap, Pen pen)
         {
-            // Draw Circle
+            pap.DrawEllipse(pen, x, y, r, r);
         }
 
         public override string ToString()
         {
             return base.ToString() + $"R={r}";
+        }
+    }
+    public class Rectangle : Figure
+    {
+        protected int h;
+        protected int w;
+
+        public Rectangle(int newX, int newY, int newH, int newW) : base(newX, newY)
+        {
+            h = newH;
+            w = newW;
+        }
+
+        public override void Draw(Graphics pap, Pen pen)
+        {
+            pap.DrawRectangle(pen, x, y, w, h);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"W={w} H={h}";
+        }
+    }
+
+    public class Triangle : Figure
+    {
+        protected int w;
+
+        public Triangle(int newX, int newY, int newW) : base(newX, newY)
+        {
+            w = newW;
+        }
+
+        public override void Draw(Graphics pap, Pen pen)
+        {
+            pap.DrawLine(pen, x, y, x + w, y + w);
+            pap.DrawLine(pen, x, y, x - w, y + w);
+            pap.DrawLine(pen, x - w, y + w, x + w, y + w);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $"W={w}";
         }
     }
 }

@@ -23,10 +23,19 @@ namespace WindowsFormsApp3
     {
         
         private TypeFigure curFig = TypeFigure.Null;
-        Color mainCol;
+        private Figure fig = null;
+        Color mainCol = Color.Black;
 
         Graphics paper;
         Pen pen;
+
+        int radius;
+        int height;
+        int weight;
+        int stroke;
+
+        int lineX = 0;
+        int lineY = 0;
         public Form1()
         {
             InitializeComponent();
@@ -40,22 +49,45 @@ namespace WindowsFormsApp3
         private void Draw(MouseEventArgs e)
         {
             paper = panel1.CreateGraphics();
-            pen = new Pen(Color.Black, 5);
+            pen = new Pen(mainCol, 5);
             switch (curFig)
             {
                 case TypeFigure.Circle:
-                    paper.DrawEllipse(pen, e.X, e.Y, 50, 50);
+                    radius = Convert.ToInt32(paramDatas.Rows[0].Cells[1].Value);
+                    stroke = Convert.ToInt32(paramDatas.Rows[1].Cells[1].Value);
+                    fig = new Circle(e.X, e.Y, radius);
+                    pen.Width = stroke;
+                    fig.Draw(paper, pen);
                     break;
+
                 case TypeFigure.Rectangle:
-                    paper.DrawRectangle(pen, e.X, e.Y, 100, 100);
+                    height = Convert.ToInt32(paramDatas.Rows[0].Cells[1].Value);
+                    weight = Convert.ToInt32(paramDatas.Rows[1].Cells[1].Value);
+                    stroke = Convert.ToInt32(paramDatas.Rows[2].Cells[1].Value);
+                    fig = new Rectangle(e.X, e.Y, height, weight);
+                    pen.Width = stroke;
+                    fig.Draw(paper, pen);
                     break;
+
                 case TypeFigure.Line:
-                    paper.DrawLine(pen, e.X, e.Y, e.X + 100, e.Y + 100);
+                    weight = Convert.ToInt32(paramDatas.Rows[0].Cells[1].Value);
+                    stroke = Convert.ToInt32(paramDatas.Rows[1].Cells[1].Value);
+                    lineX = e.X;
+                    lineY = e.Y;
+
+                    pen.Width = stroke;
+                    fig = new Line(e.X + weight, e.Y + weight, e.X, e.Y);
+                    fig.Draw(paper, pen);
                     break;
+
                 case TypeFigure.Triangle:
-                    paper.DrawLine(pen, e.X, e.Y, e.X + 51, e.Y + 51);
-                    paper.DrawLine(pen, e.X, e.Y, e.X - 51, e.Y + 51);
-                    paper.DrawLine(pen, e.X - 51, e.Y + 51, e.X + 51, e.Y + 51);
+                    weight = Convert.ToInt32(paramDatas.Rows[0].Cells[1].Value);
+                    stroke = Convert.ToInt32(paramDatas.Rows[1].Cells[1].Value);
+
+                    pen.Width = stroke;
+
+                    fig = new Triangle(e.X, e.Y, weight);
+                    fig.Draw(paper, pen) ;
                     break;
 
             }
@@ -80,18 +112,10 @@ namespace WindowsFormsApp3
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-            curFig = TypeFigure.Circle;
-            panelCircle.BackColor = Color.WhiteSmoke;
-            panelLine.BackColor = Color.Transparent;
-            panelRec.BackColor = Color.Transparent;
-            panelTrin.BackColor = Color.Transparent;
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Line;
+            Line_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.WhiteSmoke;
             panelRec.BackColor = Color.Transparent;
@@ -102,6 +126,8 @@ namespace WindowsFormsApp3
         private void label5_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Rectangle;
+            Rectangle_Mode();
+
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.WhiteSmoke;
@@ -111,17 +137,9 @@ namespace WindowsFormsApp3
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Line;
+            Line_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.WhiteSmoke;
-            panelRec.BackColor = Color.Transparent;
-            panelTrin.BackColor = Color.Transparent;
-        }
-
-        private void imgCircle_Click(object sender, EventArgs e)
-        {
-            curFig = TypeFigure.Circle;
-            panelCircle.BackColor = Color.WhiteSmoke;
-            panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
             panelTrin.BackColor = Color.Transparent;
         }
@@ -129,6 +147,7 @@ namespace WindowsFormsApp3
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Rectangle;
+            Rectangle_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.WhiteSmoke;
@@ -138,6 +157,7 @@ namespace WindowsFormsApp3
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Triangle;
+            Triangle_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
@@ -148,6 +168,7 @@ namespace WindowsFormsApp3
         private void label4_Click(object sender, EventArgs e)
         {
             curFig = TypeFigure.Triangle;
+            Triangle_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
@@ -179,15 +200,89 @@ namespace WindowsFormsApp3
         private void panelCircle_MouseClick(object sender, MouseEventArgs e)
         {
             curFig = TypeFigure.Circle;
+            Circle_Mode();
             panelCircle.BackColor = Color.WhiteSmoke;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
             panelTrin.BackColor = Color.Transparent;
         }
 
+        private void imgCircle_Click(object sender, EventArgs e)
+        {
+            curFig = TypeFigure.Circle;
+            Circle_Mode();
+            panelCircle.BackColor = Color.WhiteSmoke;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
+        }
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            curFig = TypeFigure.Circle;
+
+            Circle_Mode();
+            panelCircle.BackColor = Color.WhiteSmoke;
+            panelLine.BackColor = Color.Transparent;
+            panelRec.BackColor = Color.Transparent;
+            panelTrin.BackColor = Color.Transparent;
+
+        }
+        private void Circle_Mode()
+        {
+
+            paramDatas.Rows.Clear();
+            paramDatas.Rows.Add();
+            paramDatas.Rows[0].Cells[0].Value = "Radius";
+            paramDatas.Rows[0].Cells[1].Value = 50;
+            paramDatas.Rows.Add();
+            paramDatas.Rows[1].Cells[0].Value = "Stroke";
+            paramDatas.Rows[1].Cells[1].Value = 10;
+        }
+
+        private void Triangle_Mode()
+        {
+            paramDatas.Rows.Clear();
+            paramDatas.Rows.Add();
+            paramDatas.Rows[0].Cells[0].Value = "Weight";
+            paramDatas.Rows[0].Cells[1].Value = 250;
+            paramDatas.Rows.Add();
+            paramDatas.Rows[1].Cells[0].Value = "Stroke";
+            paramDatas.Rows[1].Cells[1].Value = 10;
+        }
+        private void Rectangle_Mode()
+        {
+            paramDatas.Rows.Clear();
+            paramDatas.Rows.Add();
+            paramDatas.Rows[0].Cells[0].Value = "Height";
+            paramDatas.Rows[0].Cells[1].Value = 50;
+
+            paramDatas.Rows.Add();
+            paramDatas.Rows[1].Cells[0].Value = "Weight";
+            paramDatas.Rows[1].Cells[1].Value = 100;
+
+            paramDatas.Rows.Add();
+            paramDatas.Rows[2].Cells[0].Value = "Stroke";
+            paramDatas.Rows[2].Cells[1].Value = 10;
+        }
+        private void Line_Mode()
+        {
+            paramDatas.Rows.Clear();
+
+            paramDatas.Rows.Add();
+            paramDatas.Rows[0].Cells[0].Value = "Stroke";
+            paramDatas.Rows[0].Cells[1].Value = 10;
+
+            paramDatas.Rows.Add();
+            paramDatas.Rows[1].Cells[0].Value = "Weight";
+            paramDatas.Rows[1].Cells[1].Value = 100;
+        }
+
+
+
         private void panelLine_MouseClick(object sender, MouseEventArgs e)
         {
             curFig = TypeFigure.Line;
+            Line_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.WhiteSmoke;
             panelRec.BackColor = Color.Transparent;
@@ -197,6 +292,7 @@ namespace WindowsFormsApp3
         private void panelRec_MouseClick(object sender, MouseEventArgs e)
         {
             curFig = TypeFigure.Rectangle;
+            Rectangle_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.WhiteSmoke;
@@ -206,6 +302,7 @@ namespace WindowsFormsApp3
         private void panelTrin_MouseClick(object sender, MouseEventArgs e)
         {
             curFig = TypeFigure.Triangle;
+            Triangle_Mode();
             panelCircle.BackColor = Color.Transparent;
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
@@ -214,10 +311,9 @@ namespace WindowsFormsApp3
         private void colorBtn_click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            colorDialog1.FullOpen = true;
-
-            colorBtn.BackColor = colorDialog1.Color;
+            mainCol = colorDialog1.Color;
         }
+
     }
     
 }
