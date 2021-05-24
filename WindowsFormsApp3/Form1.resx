@@ -214,4 +214,41 @@
         4CIAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="pictColor.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="pictColor.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHYAAABjCAYAAABOvPQ5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAA8dJREFUeF7tm4uNFEEMRDcEQiADCIEMIAPIADKADCADQiAEQiAEQiAEsMWNNAyu
+        nl9/bHc9ydLptBrdbm/PPFefHxPxTurV3x9JJn4+FUnEJ6nfT/VRf0Hi81zql9SysPrzMykSnK9Sy6Iu
+        pb8jgdHdul3UpShSgVFZshZV67sUCYi2N9aCruuDFAmE3oJLu3UpilQwvkhZC2nVZykSACRMasKWIWu9
+        lCLO+Sa1XTi95eqC62133dMuRZFyDhKmddqkP1uvYfvjGEuYtvmw7lr0OoqUQ9Z58LreSm3R3Wm9ljmy
+        M0rChNDn6vb1y7OYOAHZbmmR0JdB5Ys44I2UtUBHbqsUKccgETpyS0Xtzw8pMhDU3ljChEDXYI48CN2R
+        aLeeBYkU258BXBEmBGp/mCN3Bhltqb3ZQxfRuiZFqiMqN9sFOCpMCObIg0Gy817qLipM1rXPyBi5QCnn
+        rYV1fYpUY1Ae/FqqFsyRO9NCmBDMkTtSs73ZQ69JkerAkQP02jBH7kBrYbLoIWpTc+YAvTZ3To5IAQ/P
+        OubIDegpTAj911Trb2hh41Ogi+flA2WOXBEkLj136wJz5ErUOECvDcqReSB/EN2RXtsMitQN0EDVC6nR
+        8ED+Ip6ECeHB1MNRGqjygv4tFKkTjMiDr8Ic+QRehcmilCNTpFaMzIOvwgP5HSIIEwK1PxQpIbJloi/l
+        9INdGW5nFCkDJCCRbmUoR552sMtjHnwV9F6my5F1R6LdGhXmyELGWG76HBmZZIT2Zo+pD+RbDFR5AYlU
+        +hwZSUaNgSovTDfYVcpXs4HeZ0qR6jFQ5YVpcuTMwoSYIkfO2N7soe8ttUhFOkCvTeoceRZhskgrjBEP
+        0GuTbrBLnzHWtzV9s26QKkeeUZgQaQa7dPFSvJGKpMiRkTDMuFsXwufImQ7QaxN2sAsJU3i9r0hIkfI8
+        UOWFcAfyFKbjhOoYIgxUeUE/kxAiNXMefJUQOTKF6TylHNmFSDEPvo7bA3kK031Q+zPUTULZnVPQ5hg2
+        2OX2NhIQVyKFHvzcredBOXL3wS7mwfVBn2m3HFl3JNqt5B5Dc2QKUzuG5cjI4Nje1GPIgXzmgSovIJFq
+        liOjh3umgSovdBvsKuWapA3o864qUjMNVHmheQBEYRpH0xyZ7c049DNuIlI8QB9PkxyZwjSe6uLKA3Q/
+        VBvs0nu79S1p1iSTXarkyBQmf9we7NLFu3UB0oxbOTJ6UHO3judyjozaG5b/ggfySJhYMQqKFBqoYsWp
+        /w7kkTCx4tU/LmQNVLFilojU4/EHCO03ob59TKkAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="Name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Value.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
 </root>

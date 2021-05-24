@@ -21,10 +21,9 @@ namespace WindowsFormsApp3
     }
     public partial class Form1 : Form
     {
-        private int x = 400;
-        private int y = 40;
-        private int radius = 1;
+        
         private TypeFigure curFig = TypeFigure.Null;
+        Color mainCol;
 
         Graphics paper;
         Pen pen;
@@ -33,10 +32,6 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
-        private void texRadius_TextChanged(object sender, EventArgs e)
-        {
-            radius = Int32.Parse(texRadius.Text);
-        }
         private void panel1_MouseClicks(object sender, MouseEventArgs e)
         {
             if (curFig == TypeFigure.Null) return;
@@ -75,15 +70,6 @@ namespace WindowsFormsApp3
 
         }
 
-        private void textX_TextChanged(object sender, EventArgs e)
-        {
-            x = 400 + Int32.Parse(textX.Text);
-        }
-
-        private void textY_TextChanged(object sender, EventArgs e)
-        {
-            y = 40 + Int32.Parse(textY.Text);
-        } 
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -110,6 +96,7 @@ namespace WindowsFormsApp3
             panelLine.BackColor = Color.WhiteSmoke;
             panelRec.BackColor = Color.Transparent;
             panelTrin.BackColor = Color.Transparent;
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -223,6 +210,13 @@ namespace WindowsFormsApp3
             panelLine.BackColor = Color.Transparent;
             panelRec.BackColor = Color.Transparent;
             panelTrin.BackColor = Color.WhiteSmoke;
+        }
+        private void colorBtn_click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            colorDialog1.FullOpen = true;
+
+            colorBtn.BackColor = colorDialog1.Color;
         }
     }
     
